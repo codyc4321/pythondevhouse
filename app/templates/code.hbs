@@ -1,0 +1,37 @@
+<div class="container sub-intro">
+  <div class="col-md-2">
+    <h3>Learn to Code:</h3>
+  <div class="space">
+    {{#link-to "code.curriculum" class="topic-link btn btn-sm btn-primary"}}
+    What You'll Learn
+    <span class="pointer glyphicon glyphicon-chevron-right"></span>
+    {{/link-to}}
+  </div>
+  <div class="space">
+    {{#link-to "code.duration" class="topic-link btn btn-sm btn-primary"}}
+    Program Length
+    <span class="pointer glyphicon glyphicon-chevron-right"></span>
+    {{/link-to}}
+  </div>
+  <div class="space">
+    {{#link-to "code.schedule" class="topic-link btn btn-sm btn-primary"}}
+    Schedule
+    <span class="pointer glyphicon glyphicon-chevron-right"></span>
+    {{/link-to}}
+  </div>
+  <div class="space">
+    {{#link-to "code.jobs" class="topic-link btn btn-sm btn-primary"}}
+    Getting a Job
+    <span class="pointer glyphicon glyphicon-chevron-right"></span>
+    {{/link-to}}
+  </div>
+  </div>
+  <div class="col-md-10 detail">
+    <br>
+      {{outlet}}
+    <br>
+  </div>
+</div>
+<br>
+<br>
+<h2 class="col-md-12 center-text v-align">{{#scroll-to href='#pitch'}}{{#link-to "email" class="btn btn-default"}}info@devhouseatx.com{{/link-to}}{{/scroll-to}}</h2>

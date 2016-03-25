@@ -36,8 +36,13 @@ $.ajax({
           }
         }
        }).done(function(response) {
-         alert("Email Delivery Status! " + response[0].status);
-         console.log(response); // if you're into that sorta thing
+         if (response[0].status == 'rejected'){
+           alert("I'm sorry, the email form isn't working.\n\nPlease email info@pythondevhouse.com\nor call 813-545-2150");
+         }
+         else{
+           alert("Sent successfully! Thank you, I will contact you soon");
+           console.log(response); // I am.
+         }
          if(response[0].status === "sent") {
            $('.email').val('');
            $('.email-message').val('');

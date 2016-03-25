@@ -14,10 +14,10 @@ $.ajax({
         data: {
           "key": "Dpnhfrv6lMKKVpcICDVGqw",
           "message": {
-            "from_email": "info@devhouseatx.com",
+            "from_email": "info@pythondevhouse.com",
             "to": [
                 {
-                  "email": "devhouseatx@gmail.com",
+                  "email": "cchilder@mail.usf.edu",
                   "name": "",
                   "type": "to"
                 },

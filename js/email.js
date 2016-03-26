@@ -10,31 +10,26 @@ if (re.test(fromEmail)) {
 
 $.ajax({
         type: "POST",
-        url: "https://mandrillapp.com/api/1.0/messages/send.json",
+        url: "https://api.postmarkapp.com/email",
         data: {
-          "key": "Dpnhfrv6lMKKVpcICDVGqw",
-          "message": {
-            "from_email": "info@pythondevhouse.com",
-            "to": [
-                {
-                  "email": "cchilder@mail.usf.edu",
-                  "name": "",
-                  "type": "to"
-                },
-                // {
-                //   "email": "RECIPIENT_NO_2@EMAIL.HERE",
-                //   "name": "ANOTHER RECIPIENT NAME (OPTIONAL)",
-                //   "type": "to"
-                // }
-              ],
-            "headers": {
-              "Reply-To": fromEmail
-            },
-            "autotext": "null",
-            "subject": "Website Inquiry",
-            "text": message
-          }
-        }
+          "From": "info@pythondevhouse.com",
+          "To": "cchilder@mail.usf.edu",
+          "Cc": "copied@example.com",
+          "Bcc": "blank-copied@example.com",
+          "Subject": "Test",
+          "Tag": "Invitation",
+          "HtmlBody": "<b>Hello</b>",
+          "TextBody": "Hello",
+          "ReplyTo": fromEmail,
+          "Headers": [
+            { 
+              "Name": "X-Postmark-Server-Token", 
+              "Value": "ba7663a2-19ba-4a42-bf69-5b4485fcab6f"
+            }
+          ],
+          "TrackOpens": true
+        }    
+        
        }).done(function(response) {
          if (response[0].status == 'rejected'){
            alert("I'm sorry, the email form isn't working.\n\nPlease email info@pythondevhouse.com\nor call 813-545-2150");

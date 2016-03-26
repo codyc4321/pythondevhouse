@@ -10,9 +10,9 @@ $('.new-email-button').click(function() {
         $.ajax({
             type: "POST",
             url: "https://api.postmarkapp.com/email",
-            headers: {
-                "Access-Control-Allow-Origin": "*",
-            }
+            // headers: {
+            //     "Access-Control-Allow-Origin": "*",
+            // }
             data: {
               "From": "info@pythondevhouse.com",
               "To": "cchilder@mail.usf.edu",

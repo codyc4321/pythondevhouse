@@ -23,8 +23,16 @@ $.ajax({
           "ReplyTo": fromEmail,
           "Headers": [
             { 
-              "Name": "X-Postmark-Server-Token", 
-              "Value": "ba7663a2-19ba-4a42-bf69-5b4485fcab6f"
+                "Name": "X-Postmark-Server-Token", 
+                "Value": "ba7663a2-19ba-4a42-bf69-5b4485fcab6f"
+              },
+              { 
+                "Name": "Content-Type", 
+                "Value": "application/json"
+            },
+            { 
+                "Name": "Accept", 
+                "Value": "application/json"
             }
           ],
           "TrackOpens": true

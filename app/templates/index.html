@@ -8,7 +8,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>PythonDevHouseATX</title>
     <!-- normalizar -->
-    <link href="css/normalize.css" rel="stylesheet">
+    <link href="{{ url_for('static',filename='css/normalize.css') }}" rel="stylesheet">
 
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -17,19 +17,19 @@
 
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!--fontawesome-->
-    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/font-awesome.min.css')}}" rel="stylesheet">
 
     <!--animation-->
-    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/animate.min.css')}}" rel="stylesheet">
 
     <!--main css-->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
 
     <!--main css-->
-    <link href="css/responsive.css" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/responsive.css')}}" rel="stylesheet">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -141,7 +141,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="story_image wow slideInLeft" data-wow-duration="2s">
-                        
+                        <img src="{{url_for('static', filename='images/me_at_work.jpg')}}" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -244,7 +244,7 @@
                 
                 <div class="col-sm-6">
                     <div class="clients_say wow slideInUp" style="margin: auto;">
-                        <p class="wowBlack"><img class="img-responsive" src="images/living_room.jpg" alt=""></p>
+                        <p class="wowBlack"><img class="img-responsive" src="{{url_for('static', filename='images/living_room.jpg')}}" alt=""></p>
                         <div class="clients_say_list fix">
                             <div class="say">
                                 <!-- <h5>5 common Areas</h5> -->
@@ -255,7 +255,7 @@
                 
                 <div class="col-sm-6">
                     <div class="clients_say wow slideInUp" style="margin: auto;">
-                        <p class="wowBlack"><img class="img-responsive" src="images/kitchen.jpg" alt=""></p>
+                        <p class="wowBlack"><img class="img-responsive" src="{{url_for('static', filename='images/kitchen.jpg')}}" alt=""></p>
                         <div class="clients_say_list fix">
                             <div class="say">
                                 <!-- <h5>5 common Areas</h5> -->
@@ -266,7 +266,7 @@
                 
                 <div class="col-sm-6">
                     <div class="clients_say wow slideInUp" style="margin: auto;">
-                        <p class="wowBlack"><img class="img-responsive" src="images/office.jpg" alt=""></p>
+                        <p class="wowBlack"><img class="img-responsive" src="{{url_for('static', filename='images/office.jpg')}}" alt=""></p>
                         <div class="clients_say_list fix">
                         </div>
                     </div>
@@ -274,9 +274,7 @@
                 
                 <div class="col-sm-6">
                     <div class="clients_say wow slideInUp" style="margin: auto;">
-                        <!-- <p class="wowBlack"><img class="img-responsive" src="http://cdn.lennar.net/~/media/Com/Images/New-Homes/18/1/1992/16464/GAI/722%20x%20460%20Falcon%20Pointe%2018.jpg?d=20150202T175556" alt=""></p> -->
-                        <!-- <p class="wowBlack"><img class="img-responsive" src="http://cdn.lennar.net/~/media/Com/Images/New-Homes/18/1/2079/17255/GAI/EBF_6003And4more%20copy.jpg?d=20150924T182620" alt=""></p> -->
-                        <p class="wowBlack"><img class="img-responsive" src="images/family_room.jpg" alt=""></p>
+                        <p class="wowBlack"><img class="img-responsive" src="{{url_for('static', filename='images/family_room.jpg')}}" alt=""></p>
                         <div class="clients_say_list fix">
                             <div class="say">
                                 <!-- <h5>5 common Areas</h5> -->
@@ -287,7 +285,7 @@
                 
                 <div class="col-sm-6">
                     <div class="clients_say wow slideInUp">
-                        <p class="wowBlack"><img class="img-responsive" style="margin: auto;" src="images/bedroom1.jpg" alt=""></p>
+                        <p class="wowBlack"><img class="img-responsive" style="margin: auto;" src="{{url_for('static', filename='images/bedroom1.jpg')}}" alt=""></p>
                         <div class="clients_say_list fix">
                             <div class="say">
                                 <h5 class="text-center">2 Bedrooms with shared Bath</h5>
@@ -298,7 +296,7 @@
                 
                 <div class="col-sm-6">
                     <div class="clients_say wow slideInUp">
-                        <p class="wowBlack"><img class="img-responsive" style="margin: auto;" src="images/bathroom.jpg" alt=""></p>
+                        <p class="wowBlack"><img class="img-responsive" style="margin: auto;" src="{{url_for('static', filename='images/bathroom.jpg')}}" alt=""></p>
                         <div class="clients_say_list fix">
                             <div class="say">
                                 <h5 class="text-center">1 Bedroom with private Bath</h5>
@@ -309,7 +307,7 @@
                 
                 <div class="col-sm-6">
                     <div class="clients_say wow slideInUp">
-                        <p class="wowBlack"><img class="img-responsive" style="margin: auto;" src="images/pool.jpg" alt=""></p>
+                        <p class="wowBlack"><img class="img-responsive" style="margin: auto;" src="{{url_for('static', filename='images/pool.jpg')}}" alt=""></p>
                         <div class="clients_say_list fix">
                             <div class="say">
                                 <h5 class="text-center">Community Pool</h5>
@@ -320,7 +318,7 @@
                 
                 <div class="col-sm-6">
                     <div class="clients_say wow slideInUp">
-                        <p class="wowBlack"><img class="img-responsive" style="margin: auto; max-height: 371px" src="images/mckinney_falls.jpg" alt=""></p>
+                        <p class="wowBlack"><img class="img-responsive" style="margin: auto; max-height: 371px" src="{{url_for('static', filename='images/mckinney_falls.jpg')}}" alt=""></p>
                         <div class="clients_say_list fix">
                             <div class="say">
                                 <h5 class="text-center">Close to McKinney Falls</h5>
@@ -444,9 +442,7 @@
                         <p>Address goes here in a one or two lines, maybe lorem ipsum
                         </p>
                         <h3>
-                            +44 800 800 90
-                            info@domen.com </h3>
-                    </div>
+                            +44 800 800 90jQuery
                 </div> -->
             </div>
         </div>
@@ -498,22 +494,22 @@
 
     </body>
     <!-- main jQuery-->
-    <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="js/noframework.waypoints.min.js"></script>
-    <script src="js/email.js"></script>
+    <script src="{{url_for('static', filename='js/jquery-1.11.3.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/noframework.waypoints.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/email.js')}}"></script>
 
 
     <!-- bootstrap js -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
 
     <!-- wow js -->
-    <script src="js/wow.min.js"></script>
+    <script src="{{url_for('static', filename='js/wow.min.js')}}"></script>
     <script>
         new WOW().init();
     </script>
 
     <!-- main js -->
-    <script src="js/main.js"></script>
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
 
   	<!-- Google Map -->
   	<script>

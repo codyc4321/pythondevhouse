@@ -233,7 +233,7 @@
                     <h2>The House</h2>
                 </div>
                 <div class="col-md-12 text-left">
-                    <h3><a href="http://www.lennar.com/new-homes/texas/austin/austin/colorado-crossing/southwest-collection/sedona" target="_blank">Floor plan</a></h3>
+                    <h3><a href="/floorplan" target="_blank">Floor plan</a></h3>
                 </div>
                 
                 <div class="col-md-12 text-left">
@@ -429,31 +429,13 @@
                             info@pythondevhouse.com </h3>
                     </div>
                 </div>
-                <!-- <div class="col-sm-3">
-                    <div class="company_address wow slideInDown">
-                        <h2>london</h2>
-                        <p>Address goes here in a one or two lines, maybe lorem ipsum
-                        </p>
-                        <h3>
-                            +44 800 800 90
-                            info@domen.com </h3>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="company_address wow slideInDown">
-                        <h2>madrid</h2>
-                        <p>Address goes here in a one or two lines, maybe lorem ipsum
-                        </p>
-                        <h3>
-                            +44 800 800 90jQuery
-                </div> -->
             </div>
         </div>
         <div class="bottom-bar">
       	<div class='embed-container maps'>
           <div  class="col-sm-2 text-center"> </div>
           <div  class="col-sm-8 text-center">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3448.326906173928!2d-97.70088501799704!3d30.199215832228806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b1582684b625%3A0xc176c8750878e3e9!2sColorado+Crossing%2C+Austin%2C+TX+78744!5e0!3m2!1sen!2sus!4v1452197985583" width="100%" align="center" height="350px" frameborder="0" style="border: 0"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3448.326906173928!2d-97.70088501799704!3d30.199215832228806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b1582684b625%3A0xc176c8750878e3e9!2sColorado+Crossing%2C+Austin%2C+TX+78744!5e0!3m2!1sen!2sus!4v1452197985583" width="100%" align="center" height="450px" frameborder="0" style="border: 0"></iframe>
           </div>
           <div  class="col-sm-2 text-center"> </div>
       	</div>
@@ -482,6 +464,13 @@
             <textarea style="width: 800px; height:250px;" input type="text" required class="text-center email-message" placeholder="Have a question or want to check availability? Send me a message!" value=newEmail></textarea>
         <br>
         
+        <form action="" method="post" name="inquiries">
+            {{ form.hidden_tag() }}
+            {{ form.email(id="email_field", class="text-center email") }}<br>
+            {{ form.message(id="message_field", class="text-center email-message") }}<br>
+            <input id="inquiry_form_submission" type="submit" value="Send">
+        </form>
+            
 
                 
                 
@@ -529,7 +518,14 @@
   	});
   	</script>
 
+    <script>
+        $('#inquiry_form_submission').on('click', function() {
+            alert('I been clicked! harrr');
+        });
+    </script>
+    
     <script type="text/javascript">
+    
     var waypoint = new Waypoint({
       element: document.getElementById('skilled'),
       handler: function(direction) {
@@ -616,7 +612,6 @@
          }
        });
       console.log('resized');
-
     });
     </script>
 </html>

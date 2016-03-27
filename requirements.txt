@@ -17,7 +17,6 @@ pytz==2016.3
 requests==2.9.1
 speaklater==1.3
 SQLAlchemy==1.0.12
-webapi==0.4.11
 Werkzeug==0.11.5
 Whoosh==2.7.3
 WTForms==2.1

@@ -105,7 +105,7 @@
                 locale.text = $target.attr('title');
 
             var dialog = (options.dialog === undefined || typeof(options.dialog) != 'object') ? 
-                $('<div class="">' + locale.text + '</div>') : 
+                $('<div class="dialog confirm">' + locale.text + '</div>') : 
                 options.dialog;
 
             var buttons = {};

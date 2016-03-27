@@ -380,7 +380,7 @@
                     </div>
                     <hr>
                     <div class="wow slideInUp" data-wow-duration="1.8s">
-                        <img src="{{ url_for('static', filename='images/homebrew.jpg') }}">
+                        <img style="width: 90%;" src="{{ url_for('static', filename='images/homebrew.jpg') }}">
                     </div>
                 </div>
             </div>
@@ -463,7 +463,7 @@
                     <span style="color: red;">[{{ error }}]</span>
                     <br>
                 {% endfor %}<br>
-                {{ form.message(id="message_field", class="text-center email-message") }}<br>
+                {{ form.message(id="message_field", class="email-message") }}<br>
                 {% for error in form.message.errors %}
                     <span style="color: red;">[{{ error }}]</span><br>
                 {% endfor %}<br>
@@ -482,8 +482,8 @@
       <br>
     </div>
 
-
-    <a href="#" class="confirm" id="chode">Normal test</a>
+    <!-- test js easyconfirm -->
+    <!-- <a href="#" class="confirm" id="chode">Normal test</a> -->
 
 
     </body>
@@ -501,8 +501,12 @@
     <script>
         new WOW().init();
     </script>
+    
+    <!-- progress bar -->
+    <script src="{{ url_for('static', filename='js/progress-bar.js') }}"></script>
 
     <!-- JQuery Confirm fancy alert boxes -->
+    <!-- http://www.projectshadowlight.org/jquery-easy-confirm-dialog/ -->
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/js-blitzer.css')}}" type="text/css" />
     <script src="{{ url_for('static', filename='js/jquery.easy-confirm-dialog.js') }}"></script>
@@ -539,112 +543,14 @@
         // alert(submission_result);
         if (submission_result == "valid") {
             alert('Your submission was accepted!\nI will be in contact shortly');
+            location.hash = "#Experience_area";
+        }
+        else if (submission_result == "invalid") {
+            alert('Please check the form for errors and resubmit');
+            location.hash = "#inquiries"
         }
     </script>
-    
-    <script type="text/javascript">
-    
-    var waypoint = new Waypoint({
-      element: document.getElementById('skilled'),
-      handler: function(direction) {
-        console.log('activated');
-        var progress = setInterval(function () {
-          var $bar = $('.bar');
-          console.log($bar.width());
-          if (($(window).width() > 650 && $(window).width() < 1000) || $(window).width() > 1250) {
 
-          if ($bar.width() >= 600) {
-              clearInterval(progress);
-              $('.progress').removeClass('active');
-          } else {
-              $bar.width($bar.width() + 60);
-          }
-          if (($bar.width() / 6) > 100) {
-            $bar.text(100 + "%");
-          } else {
-            $bar.text(Math.round($bar.width() / 6) + "%");
-          };
-        } else {
-          $('.maintainer').width(300);
-          if ($bar.width() >= 300) {
-              clearInterval(progress);
-              $('.progress').removeClass('active');
-          } else {
-              $bar.width($bar.width() + 30);
-          }
-          if (($bar.width() / 3) > 100) {
-            $bar.text(100 + "%");
-          } else {
-            $bar.text(Math.round($bar.width() / 3) + "%");
-          };
-        };
-        }, 600);
-        offset: 5500
-       }
-     });
-
-    $(window).resize(function() {
-      if (($(window).width() > 650 && $(window).width() < 1000) || $(window).width() > 1250) {
-      $('.maintainer').width(600);
-      } else {
-        $('.maintainer').width(300);
-      };
-      var $bar = $('.bar');
-      $bar.width(0);
-      var waypoint = new Waypoint({
-        element: document.getElementById('skilled'),
-        handler: function(direction) {
-          console.log('activated');
-          var progress = setInterval(function () {
-            var $bar = $('.bar');
-            console.log($bar.width());
-            if (($(window).width() > 650 && $(window).width() < 1000) || $(window).width() > 1250) {
-
-            if ($bar.width() >= 600) {
-                clearInterval(progress);
-                $('.progress').removeClass('active');
-            } else {
-                $bar.width($bar.width() + 120);
-            }
-            if (($bar.width() / 6) > 100) {
-              $bar.text(100 + "%");
-            } else {
-              $bar.text(Math.round($bar.width() / 6) + "%");
-            };
-          } else {
-            $('.maintainer').width(300);
-            if ($bar.width() >= 300) {
-                clearInterval(progress);
-                $('.progress').removeClass('active');
-            } else {
-                $bar.width($bar.width() + 60);
-            }
-            if (($bar.width() / 3) > 100) {
-              $bar.text(100 + "%");
-            } else {
-              $bar.text(Math.round($bar.width() / 3) + "%");
-            };
-          };
-          }, 600);
-          offset: 5500
-         }
-       });
-      console.log('resized');
-    });
-    </script>
-    
-    <script>
-    $.extend({ alert: function (message, title) {
-  $("<div></div>").dialog( {
-    buttons: { "Ok": function () { $(this).dialog("close"); } },
-    close: function (event, ui) { $(this).remove(); },
-    resizable: false,
-    title: title,
-    modal: true
-  }).text(message);
-}
-});
-</script>
 
 
 </html>

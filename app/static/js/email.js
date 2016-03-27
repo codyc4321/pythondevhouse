@@ -50,6 +50,6 @@ $('.new-email-button').click(function() {
              }
            });
       } else {
-        alert("Invalid Email Address");
+        alert("ERROR...please check form and resubmit");
       }
 });

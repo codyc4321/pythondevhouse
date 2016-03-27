@@ -391,3 +391,7 @@ p {
 }
 
 .centered { margin-right: auto; margin-left: auto; }
+
+input {
+    padding: 0 0 400px 0;
+}

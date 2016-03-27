@@ -1,10 +1,10 @@
 from flask import render_template, request
-from app import app
+from app import application
 
 from .forms import MessageForm
 from .email import Mailer
 
-@app.route('/', methods=['GET', 'POST'])
+@application.route('/', methods=['GET', 'POST'])
 def index(title='Learn Python where you live'):
     form = MessageForm()
     
@@ -21,7 +21,7 @@ def index(title='Learn Python where you live'):
             return render_template('index.html', title=title, form=form, submission="invalid")
     return render_template('index.html', title=title, form=form, submission="none")
                            
-@app.route('/floorplan', methods=['GET'])
+@application.route('/floorplan', methods=['GET'])
 def floorplan():
     return render_template('floorplan.html',
                            title='Floorplan'

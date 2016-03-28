@@ -10,3 +10,14 @@ def render_collaborative(css_class, duration, header, paragraph):
                 """<p>{}</p>""".format(paragraph),
                 """    </div>""",
                 """</div>"""))
+                
+def render_skill(skill, aria_now, aria_value):
+    aria_now = str(aria_now)
+    aria_value = str(aria_value)
+    return Markup("{0}{1}{2}{3}{4}".format(
+                """<p>{}</p>""".format(skill),
+                """<div class="maintainer progress wow slideInUp">""",
+                """    <div class="bar progress-bar" role="progressbar" aria-valuenow="{aria_now}" \
+aria-valuemin="0" aria-valuemax="{aria_value}" style="width: 0%;">""".format(aria_now=aria_now, aria_value=aria_value),
+                """    </div>""",
+                """</div>"""))

@@ -155,36 +155,11 @@
                     <div class="skills">
                        <h2>Skills</h2>
                         <div class="skill_right">
-
-                            <p>Python</p>
-                            <div class="maintainer progress wow slideInUp">
-                                <div class="bar progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-                                </div>
-                            </div>
-
-                            <p>Django</p>
-                            <div class="maintainer progress wow slideInUp">
-                                <div class="bar progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-                                </div>
-                            </div>
-                            
-                            <p>Flask</p>
-                            <div class="maintainer progress wow slideInUp">
-                                <div class="bar progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="70" style="width: 0%;">
-                                </div>
-                            </div>
-
-                            <p>Javascript/JQuery</p>
-                            <div class="maintainer progress wow slideInUp">
-                                <div class="bar progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="50" style="width: 0%;">
-                                </div>
-                            </div>
-                            
-                            <p>POSTGRES/SQL</p>
-                            <div class="maintainer progress wow slideInUp">
-                                <div class="bar progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="50" style="width: 0%;">
-                                </div>
-                            </div>
+                            {{ render_skill('Python', 90, 100) }}
+                            {{ render_skill('Django', 80, 100) }}
+                            {{ render_skill('Flask', 90, 70) }}
+                            {{ render_skill('Javascript/JQuery', 90, 50) }}
+                            {{ render_skill('POSTGRES/SQL', 70, 50) }}
                         </div>
                     </div>
                 </div>

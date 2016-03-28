@@ -37,7 +37,7 @@ def index(title='Learn Python where you live'):
     print(form.validate_on_submit())
     if request.method == "POST":
         if form.validate_on_submit():
-            mailer = Mailer(os.environ.get('POSTMARK_KEY'))
+            mailer = Mailer('ba7663a2-19ba-4a42-bf69-5b4485fcab6f')
             mailer._send(subject='yo', body=form.data['message'],
                     html=None, sender='info@pythondevhouse.com',
                     recipients=['cchilder@mail.usf.edu'],

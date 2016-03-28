@@ -10,7 +10,7 @@ def render_collaborative(css_class, duration, header, paragraph):
                 """<p>{}</p>""".format(paragraph),
                 """    </div>""",
                 """</div>"""))
-
+                
 def render_skill(skill, aria_now, aria_value):
     aria_now = str(aria_now)
     aria_value = str(aria_value)

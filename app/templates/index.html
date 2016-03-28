@@ -105,31 +105,9 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4">
-                    <div class="single_feature wow slideInUp" data-wow-duration="1s">
-                        <i class="fa fa-user"></i>
-                        <h3>Guided Learning</h3>
-                        <p>Studying web development is hard when you're alone.  Enjoy the journey with a mentor that'll remove much of the uncertainty and confusion that comes from learning in isolation.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="single_feature wow slideInUp" data-wow-duration="2s">
-                        <i class="fa fa-flag"></i>
-                        <h3>No More Frustration</h3>
-                        <p>
-                          Getting stuck usually means posting to a forum and waiting days or weeks for a response. Remove these roadblocks and accelerate your learning by living in a house full of programmers, with an instructor/mentor.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="single_feature wow slideInUp" data-wow-duration="3s">
-                        <i class="fa fa-paint-brush"></i>
-                        <h3>Transition To a New Career</h3>
-                        <p>Take the guess work out of your path to that entry level job and move forward with the confidence that all your efforts are contributing to your development and employability.
-                        </p>
-                    </div>
-                </div>
+                    {{ render_collaborative('fa-user', 1, 'Guided Learning', guided_learning) }}
+                                    {{ render_collaborative('fa-flag', 2, 'No More Frustration', no_frustration) }}
+                                    {{ render_collaborative('fa-paint-brush', 3, 'Transition To a New Career', new_career) }}
             </div>
         </div>
     </section>

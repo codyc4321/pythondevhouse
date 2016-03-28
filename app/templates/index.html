@@ -30,13 +30,6 @@
     <!--main css-->
     <link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet">
 
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body>
@@ -47,7 +40,6 @@
     <header id="header_area">
         <div class="container">
             <div class="row">
-              <!-- <div class="col-sm-8"> </div> -->
                 <div class="col-sm-4">
                     <div class="logo">
                         <h1><a href="#inquiries">PythonDevHouseATX</a></h1>
@@ -105,31 +97,9 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4">
-                    <div class="single_feature wow slideInUp" data-wow-duration="1s">
-                        <i class="fa fa-user"></i>
-                        <h3>Guided Learning</h3>
-                        <p>Studying web development is hard when you're alone.  Enjoy the journey with a mentor that'll remove much of the uncertainty and confusion that comes from learning in isolation.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="single_feature wow slideInUp" data-wow-duration="2s">
-                        <i class="fa fa-flag"></i>
-                        <h3>No More Frustration</h3>
-                        <p>
-                          Getting stuck usually means posting to a forum and waiting days or weeks for a response. Remove these roadblocks and accelerate your learning by living in a house full of programmers, with an instructor/mentor.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="single_feature wow slideInUp" data-wow-duration="3s">
-                        <i class="fa fa-paint-brush"></i>
-                        <h3>Transition To a New Career</h3>
-                        <p>Take the guess work out of your path to that entry level job and move forward with the confidence that all your efforts are contributing to your development and employability.
-                        </p>
-                    </div>
-                </div>
+                {{ render_collaborative('fa-user', 1, 'Guided Learning', guided_learning) }}
+                {{ render_collaborative('fa-flag', 2, 'No More Frustration', no_frustration) }}
+                {{ render_collaborative('fa-paint-brush', 3, 'Transition To a New Career', new_career) }}
             </div>
         </div>
     </section>
@@ -146,18 +116,9 @@
                 <div class="col-md-6">
                     <div class="story_text wow slideInRight" data-wow-duration="2s">
                         <h2>My Story</h2>
-                        <p>I'm a backend python/django engineer for a well established mutual fund and part-time backend python/flask engineer for an early startup here in Austin, TX.  I build daily in Python, Django, and Flask, and occasionally I use Javascript and JQuery. 
-                            I specialize in metaprogramming (writing programs to write my programs for me), unittesting (essential to good software), and developing/fixing APIs. 
-                            But just 2 years ago I was a struggling chemist in a dying job market.</p>
-                        <p>I began learning python online through udacity and with the training of my friend who has a C.S. degree, and my friend who was learning web development. 
-                            I decided to change my future and become a developer full-time.</p>
-                        <!-- <a href="">More about our team</a> --> 
-                        <p>After just 3 weeks of individual study and one-on-one training from my best friend I wrote a calendar calculator in python, and went from aspirant to junior developer.  
-                            This was all I needed to launch a successful career and leave my stress behind, and I can attest to how beneficial one-on-one guidance can be. 
-                            Now, I'd like to launch YOUR career!</p>
-                        <div class="" id="skilled">
-
-                        </div>
+                        <p>{{ my_story_1 }}</p>
+                        <p>{{ my_story_2 }}</p>
+                        <p>{{ my_story_3 }}</p>
                     </div>
                 </div>
             </div>
@@ -183,36 +144,11 @@
                     <div class="skills">
                        <h2>Skills</h2>
                         <div class="skill_right">
-
-                            <p>Python</p>
-                            <div class="maintainer progress wow slideInUp">
-                                <div class="bar progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-                                </div>
-                            </div>
-
-                            <p>Django</p>
-                            <div class="maintainer progress wow slideInUp">
-                                <div class="bar progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-                                </div>
-                            </div>
-                            
-                            <p>Flask</p>
-                            <div class="maintainer progress wow slideInUp">
-                                <div class="bar progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="70" style="width: 0%;">
-                                </div>
-                            </div>
-
-                            <p>Javascript/JQuery</p>
-                            <div class="maintainer progress wow slideInUp">
-                                <div class="bar progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="50" style="width: 0%;">
-                                </div>
-                            </div>
-                            
-                            <p>POSTGRES/SQL</p>
-                            <div class="maintainer progress wow slideInUp">
-                                <div class="bar progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="50" style="width: 0%;">
-                                </div>
-                            </div>
+                            {{ render_skill('Python', 90, 100) }}
+                            {{ render_skill('Django', 80, 100) }}
+                            {{ render_skill('Flask', 90, 70) }}
+                            {{ render_skill('Javascript/JQuery', 90, 50) }}
+                            {{ render_skill('POSTGRES/SQL', 70, 50) }}
                         </div>
                     </div>
                 </div>
@@ -221,8 +157,6 @@
     </section>
 
     <!-- end experience area -->
-
-<!-- <img src="images/IMG_0990.jpg" alt=""> -->
 
     <section id="clients_say_area" class="section_padding">
         <div class="container">
@@ -246,7 +180,6 @@
                         <p class="wowBlack"><img class="img-responsive" src="{{ url_for('static', filename='images/living_room.jpg') }}" alt=""></p>
                         <div class="clients_say_list fix">
                             <div class="say">
-                                <!-- <h5>5 common Areas</h5> -->
                             </div>
                         </div>
                     </div>
@@ -257,7 +190,6 @@
                         <p class="wowBlack"><img class="img-responsive" src="{{ url_for('static', filename='images/kitchen.jpg') }}" alt=""></p>
                         <div class="clients_say_list fix">
                             <div class="say">
-                                <!-- <h5>5 common Areas</h5> -->
                             </div>
                         </div>
                     </div>
@@ -276,7 +208,6 @@
                         <p class="wowBlack"><img class="img-responsive" src="{{ url_for('static', filename='images/family_room.jpg') }}" alt=""></p>
                         <div class="clients_say_list fix">
                             <div class="say">
-                                <!-- <h5>5 common Areas</h5> -->
                             </div>
                         </div>
                     </div>
@@ -540,7 +471,7 @@
     
     <script>
         var submission_result = "{{ submission }}";
-        // alert(submission_result);
+        
         if (submission_result == "valid") {
             alert('Your submission was accepted!\nI will be in contact shortly');
             location.hash = "#Experience_area";

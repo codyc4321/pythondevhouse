@@ -1,6 +1,6 @@
 import os
 
-from flask import render_template, request
+from flask import render_template, request, jsonify, json
 from app import application
 
 from .forms import MessageForm
@@ -33,15 +33,12 @@ career and leave my stress behind, and I can attest to how beneficial one-on-one
 def index(title='Learn Python where you live'):
     form = MessageForm()
     
-    
-    print(form.validate_on_submit())
     if request.method == "POST":
         if form.validate_on_submit():
             mailer = Mailer('ba7663a2-19ba-4a42-bf69-5b4485fcab6f')
             mailer._send(subject='yo', body=form.data['message'],
                     html=None, sender='info@pythondevhouse.com',
                     recipients=['cchilder@mail.usf.edu'],
-
                     reply_to=form.data['email'], cc=None)
             return render_template('index.html', title=title, form=form, submission="valid")
         else:
@@ -54,3 +51,26 @@ def index(title='Learn Python where you live'):
 @application.route('/floorplan', methods=['GET'])
 def floorplan():
     return render_template('floorplan.html', title='Floorplan')
+
+@application.route('/inquiryFormSubmission', methods=['POST'])
+def inquiryFormSubmission():
+    form = MessageForm()
+    if request.method == "POST":
+        formSubmission = {"form" : "test stuff"}
+        if form.validate_on_submit():
+            print ("successful")
+            return json.dumps({ "success": "true"}), 200
+            # return jsonify(formSubmission)
+            # mailer = Mailer('ba7663a2-19ba-4a42-bf69-5b4485fcab6f')
+            # mailer._send(subject='yo', body=form.data['message'],
+            #         html=None, sender='info@pythondevhouse.com',
+            #         recipients=['cchilder@mail.usf.edu'],
+            #         reply_to=form.data['email'], cc=None)
+            # return render_template('index.html', title=title, form=form, submission="valid")
+        else:
+            print ("not valid")
+            return json.dumps({ "errors": form.errors }), 200
+            # return jsonify(formSubmission)
+            # return render_template('index.html', title=title, form=form, submission="invalid")
+    # return render_template('index.html', title='Form submitttted')
+

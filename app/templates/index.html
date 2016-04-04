@@ -392,13 +392,19 @@
                 <h4 style="color:green;">Preorder available now</h4>
             </div>
         
-            <form action="" method="post" name="inquiries">
-                {{ form.hidden_tag() }}
-                {{ form.email(id="email_field", class="text-center email") }}<br>
+            <ul class="errors">
+
+            </ul>
+            <div class="flash_message">
+
+            </div>
+            <form id="inquiry_form_submission" action="" method="post" name="inquiries">
                 {% for error in form.email.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                     <br>
                 {% endfor %}<br>
+                {{ form.hidden_tag() }}
+                {{ form.email(id="email_field", class="text-center email") }}<br>
                 {{ form.message(id="message_field", class="email-message") }}<br>
                 {% for error in form.message.errors %}
                     <span style="color: red;">[{{ error }}]</span><br>
@@ -469,12 +475,56 @@
     </script>
 
     <script>
-        $('#inquiry_form_submission').on('click', function() {
+
+        $('#inquiry_form_submission').on('submit', function() {
+            var thisFormObject = $(this),
+                formData = thisFormObject.serialize();
+            console.log(formData);
+            $(".error").html(""); // clear .errors div of it's html
+            $(".flash_message").html("");
+            $.ajax({
+                type: 'POST',  
+                url: '/inquiryFormSubmission',  
+                data: thisFormObject.serialize(),  
+                dataType:'json',
+                success:function(xhr, status, error){
+                    if (xhr.errors) {
+                        // form isn't valid
+
+                        // OPTION 1
+                        // Loop through the errors and put the message next to elements with name=key
+                        // $.each(xhr.errors, function(key, value) {
+                        //     thisFormObject.find("input, textarea").attr("name", key).before('<span style=\'color:red\' class=\'error\'>"' + value + '"<br></span>');
+                        // });
+
+                        // OPTION 2 DISPLAY ERRORS IN ONE BOX ABOVE FORM in <ul/>
+                        $(".errors").html("");
+                        $.each(xhr.errors, function(key, value) {
+                            $(".errors").append('<li style=\'color:red\' class=\'error\'>"' + value + '"</li>');
+                        });
+                    } else if (xhr.success == "true") {
+                        // dict with success=true returned
+                        $(".flash_message").html("<span style='color:green'>Thank you for your message</span>");
+                    }
+                    // display flash message
+                    console.log("200 response occurred" + xhr);
+                },
+                error: function(xhr, status, error) { 
+                    // display errors
+                    
+                    var err = eval("(" + xhr.responseText + ")");
+                    alert(err);
+                }
+            });
+            return false;
         });
         
     </script>
     
     <script>
+
+
+        // form submission javascript stuff - NO LONGER USED
         var submission_result = "{{ submission }}";
         
         if (submission_result == "valid") {
